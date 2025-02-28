@@ -1,257 +1,463 @@
 Question 1:
 
-Reverse an Array
-Difficulty: EasyAccuracy: 55.32%Submissions: 134K+Points: 2Average Time: 5m
-You are given an array of integers arr[]. Your task is to reverse the given array.
-
-Note: Modify the array in place.
-
-Examples:
-
-Input: arr = [1, 4, 3, 2, 6, 5]
-Output: [5, 6, 2, 3, 4, 1]
-Explanation: The elements of the array are 1 4 3 2 6 5. After reversing the array, the first element goes to the last position, the second element goes to the second last position and so on. Hence, the answer is 5 6 2 3 4 1.
-Input: arr = [4, 5, 2]
-Output: [2, 5, 4]
-Explanation: The elements of the array are 4 5 2. The reversed array will be 2 5 4.
-Input: arr = [1]
-Output: [1]
-Explanation: The array has only single element, hence the reversed array is same as the original.
-Constraints:
-1<=arr.size()<=105
-0<=arr[i]<=105
+    Reverse an Array
+    Difficulty: EasyAccuracy: 55.32%Submissions: 134K+Points: 2Average Time: 5m
+    You are given an array of integers arr[]. Your task is to reverse the given array.
+    
+    Note: Modify the array in place.
+    
+    Examples:
+    
+    Input: arr = [1, 4, 3, 2, 6, 5]
+    Output: [5, 6, 2, 3, 4, 1]
+    Explanation: The elements of the array are 1 4 3 2 6 5. After reversing the array, the first element goes to the last position, the second element goes to the second last position and so on. Hence, the answer is 5 6 2 3 4 1.
+    Input: arr = [4, 5, 2]
+    Output: [2, 5, 4]
+    Explanation: The elements of the array are 4 5 2. The reversed array will be 2 5 4.
+    Input: arr = [1]
+    Output: [1]
+    Explanation: The array has only single element, hence the reversed array is same as the original.
+    Constraints:
+    1<=arr.size()<=105
+    0<=arr[i]<=105
 
 Solution:
-//{ Driver Code Starts
-import java.io.*;
-import java.util.*;
-
-public class Main {
-    public static void main(String args[]) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int tc = Integer.parseInt(br.readLine());
-
-        while (tc-- > 0) {
-            String str[] = br.readLine().split(" ");
-            int arr[] = new int[str.length];
-
-            for (int i = 0; i < str.length; i++) arr[i] = Integer.parseInt(str[i]);
-            Solution obj = new Solution();
-
-            obj.reverseArray(arr);
-            for (int i = 0; i < arr.length; i++) {
-                System.out.print(arr[i] + " ");
+        //{ Driver Code Starts
+        import java.io.*;
+        import java.util.*;
+        
+        public class Main {
+            public static void main(String args[]) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                int tc = Integer.parseInt(br.readLine());
+        
+                while (tc-- > 0) {
+                    String str[] = br.readLine().split(" ");
+                    int arr[] = new int[str.length];
+        
+                    for (int i = 0; i < str.length; i++) arr[i] = Integer.parseInt(str[i]);
+                    Solution obj = new Solution();
+        
+                    obj.reverseArray(arr);
+                    for (int i = 0; i < arr.length; i++) {
+                        System.out.print(arr[i] + " ");
+                    }
+                    System.out.println();
+                    System.out.println("~");
+                }
             }
-            System.out.println();
-            System.out.println("~");
         }
-    }
-}
-// } Driver Code Ends
-
-
-class Solution {
-    public void reverseArray(int arr[]) {
-        // code here
-        int j=arr.length-1;
-        int k=arr.length-1;
-        int temp=0;
-        for(int i=0;i<=j/2;i++)
-        {
-            temp=arr[i];
-            arr[i]=arr[k];
-            arr[k]=temp;
-            k--;
+        // } Driver Code Ends
+        
+        
+        class Solution {
+            public void reverseArray(int arr[]) {
+                // code here
+                int j=arr.length-1;
+                int k=arr.length-1;
+                int temp=0;
+                for(int i=0;i<=j/2;i++)
+                {
+                    temp=arr[i];
+                    arr[i]=arr[k];
+                    arr[k]=temp;
+                    k--;
+                }
+            }
         }
-    }
-}
 
 Question 2:
-Min and Max in Array
-Difficulty: BasicAccuracy: 68.55%Submissions: 327K+Points: 1Average Time: 10m
-Given an array arr. Your task is to find the minimum and maximum elements in the array.
+    Min and Max in Array
+    Difficulty: BasicAccuracy: 68.55%Submissions: 327K+Points: 1Average Time: 10m
+    Given an array arr. Your task is to find the minimum and maximum elements in the array.
+    
+    Note: Return a Pair that contains two elements the first one will be a minimum element and the second will be a maximum.
+    
+    Examples:
+    
+    Input: arr[] = [3, 2, 1, 56, 10000, 167]
+    Output: 1 10000
+    Explanation: minimum and maximum elements of array are 1 and 10000.
+    Input: arr[] = [1, 345, 234, 21, 56789]
+    Output: 1 56789
+    Explanation: minimum and maximum element of array are 1 and 56789.
+    Input: arr[] = [56789]
+    Output: 56789 56789
+    Explanation: Since the array contains only one element so both min & max are same.
+    Constraints:
+    1 <= arr.size() <= 105
+    1 <= arr[i] <=109
 
-Note: Return a Pair that contains two elements the first one will be a minimum element and the second will be a maximum.
+
+Solution:
+        //{ Driver Code Starts
+        // Initial Template for Java
+        
+        import java.io.*;
+        import java.lang.*;
+        import java.util.*;
+        
+        
+        // } Driver Code Ends
+        
+        // User function Template for Java
+        // User function Template for Java
+        
+        /*
+        class Pair<K, V> {
+            private final K key;
+            private final V value;
+        
+            public Pair(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
+        
+            public K getKey() {
+                return key;
+            }
+        
+            public V getValue() {
+                return value;
+            }
+        }
+        
+        Java users need to return result in Pair class
+        For Example -> return new Pair(minimum,maximum)
+        */
+        
+        class Solution {
+            public Pair<Integer, Integer> getMinMax(int[] arr) {
+                // Code Here
+                
+                int min=arr[0];
+                int max=arr[0];
+                for(int temp:arr){
+                    if(temp<min){
+                        min=temp;
+                    }
+                    if(temp>max){
+                        max=temp;
+                    }
+                }
+                
+                return new Pair(min, max);
+            }
+        }
+        
+        
+        
+        //{ Driver Code Starts.
+        
+        class Pair<K, V> {
+            private final K key;
+            private final V value;
+        
+            public Pair(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
+        
+            public K getKey() { return key; }
+        
+            public V getValue() { return value; }
+        }
+        
+        class GFG {
+            public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                int t;
+                t = Integer.parseInt(br.readLine());
+                while (t-- > 0) {
+                    String line = br.readLine();
+                    String[] tokens = line.split(" ");
+        
+                    // Create an ArrayList to store the integers
+                    ArrayList<Integer> array = new ArrayList<>();
+        
+                    // Parse the tokens into integers and add to the array
+                    for (String token : tokens) {
+                        array.add(Integer.parseInt(token));
+                    }
+        
+                    int[] arr = new int[array.size()];
+                    int idx = 0;
+                    for (int i : array) arr[idx++] = i;
+        
+                    Solution ob = new Solution();
+                    Pair<Integer, Integer> pp = ob.getMinMax(arr);
+                    System.out.println(pp.getKey() + " " + pp.getValue());
+        
+                    System.out.println("~");
+                }
+            }
+        }
+        
+        // } Driver Code Ends
+
+Question 3:
+        Kth Smallest
+        Difficulty: MediumAccuracy: 35.17%Submissions: 675K+Points: 4Average Time: 25m
+        Given an array arr[] and an integer k where k is smaller than the size of the array, the task is to find the kth smallest element in the given array.
+        
+        Follow up: Don't solve it using the inbuilt sort function.
+        
+        Examples :
+        
+        Input: arr[] = [7, 10, 4, 3, 20, 15], k = 3
+        Output:  7
+        Explanation: 3rd smallest element in the given array is 7.
+        Input: arr[] = [2, 3, 1, 20, 15], k = 4 
+        Output: 15
+        Explanation: 4th smallest element in the given array is 15.
+        Expected Time Complexity: O(n+(max_element) )
+        Expected Auxiliary Space: O(max_element)
+        Constraints:
+        1 <= arr.size <= 106
+        1<= arr[i] <= 106
+        1 <= k <= n
+        
+
+Solution:
+
+        class Solution {
+            public static int kthSmallest(int[] arr, int k) {
+                // Your code here
+                int min;
+                int temp;
+                int l=0;
+                for(int i=0;i<arr.length-1;i++)
+                {
+                    min=arr[i];
+                for (int j=i+1; j<arr.length;j++){
+                    if(arr[j]<min)
+                    {
+                        min=arr[j];
+                        l=j;
+                    }
+                }
+                if(min!=arr[i]){
+                temp=arr[i];
+                arr[i]=min;
+                arr[l]=temp;
+                
+                }
+                }
+                /*for(int m:arr){
+                    System.out.print(m);
+                }
+                
+                */
+                
+                return arr[k-1];
+            }
+        }
+
+Question 4:
+        Sort 0s, 1s and 2s
+        Difficulty: MediumAccuracy: 50.58%Submissions: 751K+Points: 4Average Time: 10m
+        Given an array arr[] containing only 0s, 1s, and 2s. Sort the array in ascending order.
+        
+        You need to solve this problem without utilizing the built-in sort function.
+        
+        Examples:
+        
+        Input: arr[] = [0, 1, 2, 0, 1, 2]
+        Output: [0, 0, 1, 1, 2, 2]
+        Explanation: 0s 1s and 2s are segregated into ascending order.
+        Input: arr[] = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1]
+        Output: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2]
+        Explanation: 0s 1s and 2s are segregated into ascending order.
+        
+        Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+        Constraints:
+        1 <= arr.size() <= 106
+        0 <= arr[i] <= 2
+
+Solution:
+        //{ Driver Code Starts
+        import java.io.*;
+        import java.util.*;
+        
+        class GFG {
+            public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+                int t = Integer.parseInt(br.readLine());
+        
+                while (t-- > 0) {
+                    String input = br.readLine();
+                    String[] inputArray = input.split("\\s+");
+                    int a[] = new int[inputArray.length];
+        
+                    for (int i = 0; i < a.length; i++) a[i] = Integer.parseInt(inputArray[i]);
+        
+                    Solution ob = new Solution();
+                    ob.sort012(a);
+        
+                    for (int num : a) {
+                        System.out.print(num + " ");
+                    }
+                    System.out.println();
+                    System.out.println("~");
+                }
+            }
+        }
+        
+        
+        // } Driver Code Ends
+        
+        class Solution {
+            // Function to sort an array of 0s, 1s, and 2s
+            public void sort012(int[] arr) {
+                // code here
+                int k0=0;
+                int k1=1;
+                int k2=2;
+                int f0=0;
+                int f1=0;
+                int f2=0;
+                for(int i=0; i<arr.length;i++){
+                    if(arr[i]==k0)
+                    {
+                        f0=f0+1;
+                    }
+                    if(arr[i]==k1)
+                    {
+                        f1=f1+1;
+                    }
+                    if(arr[i]==k2)
+                    {
+                        f2=f2+1;
+                    }
+                }
+                for(int j=0; j<arr.length;j++){
+                
+                    if(f0!=0)
+                    {
+                        arr[j]=k0;
+                        f0=f0-1;
+                    }
+                    else if(f1!=0)
+                    {
+                        arr[j]=k1;
+                        f1=f1-1;
+                    }
+                    else if(f2!=0)
+                    {
+                        arr[j]=k2;
+                        f2=f2-1;
+                    }
+                }
+                
+            }
+        }
+
+Question 5:
+Move all negative elements to end
+Difficulty: EasyAccuracy: 56.24%Submissions: 148K+Points: 2
+Given an unsorted array arr[ ] having both negative and positive integers. The task is to place all negative elements at the end of the array without changing the order of positive elements and negative elements.
+
+Note: Don't return any array, just in-place on the array.
 
 Examples:
 
-Input: arr[] = [3, 2, 1, 56, 10000, 167]
-Output: 1 10000
-Explanation: minimum and maximum elements of array are 1 and 10000.
-Input: arr[] = [1, 345, 234, 21, 56789]
-Output: 1 56789
-Explanation: minimum and maximum element of array are 1 and 56789.
-Input: arr[] = [56789]
-Output: 56789 56789
-Explanation: Since the array contains only one element so both min & max are same.
-Constraints:
-1 <= arr.size() <= 105
-1 <= arr[i] <=109
+Input : arr[] = [1, -1, 3, 2, -7, -5, 11, 6 ]
+Output : [1, 3, 2, 11, 6, -1, -7, -5]
+Explanation: By doing operations we separated the integers without changing the order.
+Input : arr[] = [-5, 7, -3, -4, 9, 10, -1, 11]
+Output : [7, 9, 10, 11, -5, -3, -4, -1]
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
 
+Constraints:
+1 ≤ arr.size ≤ 106
+-109 ≤ arr[i] ≤ 109
 
 Solution:
-//{ Driver Code Starts
-// Initial Template for Java
-
-import java.io.*;
-import java.lang.*;
-import java.util.*;
-
-
-// } Driver Code Ends
-
-// User function Template for Java
-// User function Template for Java
-
-/*
-class Pair<K, V> {
-    private final K key;
-    private final V value;
-
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public K getKey() {
-        return key;
-    }
-
-    public V getValue() {
-        return value;
-    }
-}
-
-Java users need to return result in Pair class
-For Example -> return new Pair(minimum,maximum)
-*/
-
-class Solution {
-    public Pair<Integer, Integer> getMinMax(int[] arr) {
-        // Code Here
+        //{ Driver Code Starts
+        // Initial Template for Java
         
-        int min=arr[0];
-        int max=arr[0];
-        for(int temp:arr){
-            if(temp<min){
-                min=temp;
-            }
-            if(temp>max){
-                max=temp;
+        import java.io.*;
+        import java.lang.*;
+        import java.util.*;
+        
+        public class Main {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                int T = Integer.parseInt(sc.nextLine());
+        
+                while (T > 0) {
+                    String[] input = sc.nextLine().trim().split(" ");
+                    int[] a = new int[input.length];
+                    for (int i = 0; i < input.length; i++) {
+                        a[i] = Integer.parseInt(input[i]);
+                    }
+                    Solution ob = new Solution();
+                    ob.segregateElements(a);
+                    for (int num : a) {
+                        System.out.print(num + " ");
+                    }
+                    System.out.println();
+                    T--;
+                
+        System.out.println("~");
+        }
+                sc.close();
             }
         }
         
-        return new Pair(min, max);
-    }
-}
-
-
-
-//{ Driver Code Starts.
-
-class Pair<K, V> {
-    private final K key;
-    private final V value;
-
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public K getKey() { return key; }
-
-    public V getValue() { return value; }
-}
-
-class GFG {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t;
-        t = Integer.parseInt(br.readLine());
-        while (t-- > 0) {
-            String line = br.readLine();
-            String[] tokens = line.split(" ");
-
-            // Create an ArrayList to store the integers
-            ArrayList<Integer> array = new ArrayList<>();
-
-            // Parse the tokens into integers and add to the array
-            for (String token : tokens) {
-                array.add(Integer.parseInt(token));
-            }
-
-            int[] arr = new int[array.size()];
-            int idx = 0;
-            for (int i : array) arr[idx++] = i;
-
-            Solution ob = new Solution();
-            Pair<Integer, Integer> pp = ob.getMinMax(arr);
-            System.out.println(pp.getKey() + " " + pp.getValue());
-
-            System.out.println("~");
-        }
-    }
-}
-
-// } Driver Code Ends
-
-Question 3:
-Kth Smallest
-Difficulty: MediumAccuracy: 35.17%Submissions: 675K+Points: 4Average Time: 25m
-Given an array arr[] and an integer k where k is smaller than the size of the array, the task is to find the kth smallest element in the given array.
-
-Follow up: Don't solve it using the inbuilt sort function.
-
-Examples :
-
-Input: arr[] = [7, 10, 4, 3, 20, 15], k = 3
-Output:  7
-Explanation: 3rd smallest element in the given array is 7.
-Input: arr[] = [2, 3, 1, 20, 15], k = 4 
-Output: 15
-Explanation: 4th smallest element in the given array is 15.
-Expected Time Complexity: O(n+(max_element) )
-Expected Auxiliary Space: O(max_element)
-Constraints:
-1 <= arr.size <= 106
-1<= arr[i] <= 106
-1 <= k <= n
-
-
-Solution:
-
-class Solution {
-    public static int kthSmallest(int[] arr, int k) {
-        // Your code here
-        int min;
-        int temp;
-        int l=0;
-        for(int i=0;i<arr.length-1;i++)
-        {
-            min=arr[i];
-        for (int j=i+1; j<arr.length;j++){
-            if(arr[j]<min)
-            {
-                min=arr[j];
-                l=j;
+        // } Driver Code Ends
+        
+        
+        // User function Template for Java
+        
+        class Solution {
+            public void segregateElements(int[] arr) {
+                // Your code goes here
+                int j=0;
+                int k=0;
+                int[] nev1={};
+                int[] pos2={};
+                 /*for(int i=0;i<arr.length-1;i++)
+                {
+                    for(int j=0;j<arr.length-1;j++)
+                      if(arr[j]<0&& arr[j+1]>0){
+                          temp=arr[j];
+                          arr[j]=arr[j+1];
+                          arr[j+1]=temp;
+                      }
+                }
+                
+               for(int j:arr){
+                    System.out.print(j);
+                }
+                */
+                for(int i=0;i<arr.length;i++)
+                {
+                    if(arr[i]<0)
+                    {
+                        nev1[j]=arr[i];
+                        j=j+1;
+                    }
+                    else
+                    {
+                        pos2[k]=arr[i];
+                        k=k+1;
+                    }
+                    
+                }
+                 for(int l=0;l<k;l++)
+                 {
+                     arr[l]=pos2[l];
+                 }
+                for(int m=0;m<j;m++)
+                 {
+                     arr[m+k]=nev1[m];
+                 }
             }
         }
-        if(min!=arr[i]){
-        temp=arr[i];
-        arr[i]=min;
-        arr[l]=temp;
-        
-        }
-        }
-        /*for(int m:arr){
-            System.out.print(m);
-        }
-        
-        */
-        
-        return arr[k-1];
-    }
-}
 
+Question 6:
 
 
